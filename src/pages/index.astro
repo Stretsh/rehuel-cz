@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro'
+import {Icon} from 'astro-icon/components'
+---
+
+<Layout title="Welcome to Astro.">
+    <section id="contact" class="mx-16 mb-16 py-10">
+        <div class="pt-10 pb-28">
+            <h2 class="text-4xl font-light">Website</h2>
+            <p class="px-4 text-lg font-light">coming soon</p>
+        </div>
+        <div class="mx-auto w-2/5 p-5">
+            <div>
+                <p class="font-extrabold text-xl mb-1">Rehuël Lobato de Mesquita</p>
+                <p class="mb-10">Freelance full-stack web developer</p>
+                <p class="flex items-center gap-4 mb-2">
+                    <span><Icon name="at-sign"/></span>
+                    <a href="mailto:hello@rehuel.cz" class="hover:underline">hello@rehuel.cz</a>
+                </p>
+                <p class="flex items-center gap-4">
+                    <span><Icon name="linkedin"/></span>
+                    <a href="https://www.linkedin.com/in/rehuel" class="hover:underline">LinkedIn</a>
+                </p>
+            </div>
+        </div>
+    </section>
+</Layout>
