@@ -7,4 +7,7 @@ import icon from 'astro-icon'
 export default defineConfig({
   integrations: [tailwind(), icon()],
   site: 'https://rehuel.cz',
+  build: {
+    assets: 'assets'
+  }
 })
