@@ -1,59 +1,70 @@
 ---
-const { title } = Astro.props
+const {title} = Astro.props
 
 import '../styles/victor-mono.css'
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description"
+          content="Rehuël Lobato de Mesquita (Rehuel) is a freelance full-stack web developer based in Brno,
+          specializing in user-focused web applications and designs. With 25 years of experience, I offer expert development in
+          HTML, CSS, JavaScript, PHP, and more. Get in touch for your next project!">
+    <meta name="keywords"
+          content="web development, freelance developer, full-stack developer, web design, user experience, Brno,
+          HTML, CSS, JavaScript, PHP, Vue.js, Figma, Rehuël, Rehuel, Lobato de Mesquita">
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <!--<meta name="generator" content={Astro.generator} />-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:wght@100..700&display=swap" rel="stylesheet">
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Victor+Mono:wght@100..700&display=swap"
-			rel="stylesheet">
-
-		<title>{title}</title>
-	</head>
-	<body class="max-w-7xl mx-auto">
-		<slot />
-	</body>
+    <title>{title}</title>
+    <meta property="og:title" content="Rehuël Lobato de Mesquita (Rehuel) - Freelance Full-Stack Web Developer in Brno">
+    <meta property="og:description"
+          content="Specializing in user-focused web applications and designs with 25 years of experience.">
+    <!--<meta property="og:image" content="URL_to_image.jpg">-->
+    <meta property="og:url" content="https://rehuel.cz">
+    <meta property="og:type" content="website">
+</head>
+<body class="max-w-7xl mx-auto">
+<slot/>
+</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	* {
-		box-sizing: border-box;
-	}
-	html {
-		font-family: 'Victor Mono', sans-serif;
-		background: #FFF3DA;
-		color: #505050;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+    :root {
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+                45deg,
+                rgb(var(--accent)),
+                rgb(var(--accent-light)) 30%,
+                white 60%
+        );
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-family: 'Victor Mono', sans-serif;
+        background: #FFF3DA;
+        color: #505050;
+    }
+
+    code {
+        font-family: Menlo,
+        Monaco,
+        Lucida Console,
+        Liberation Mono,
+        DejaVu Sans Mono,
+        Bitstream Vera Sans Mono,
+        Courier New,
+        monospace;
+    }
 </style>

@@ -1,27 +1,164 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import {Icon} from 'astro-icon/components'
+import { Icon } from 'astro-icon/components'
+import Question from '../components/QuestionsLi.astro'
 ---
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const questions = document.getElementById('questions')
+		const nav = document.getElementById('nav')
 
-<Layout title="Rehuel | Under construction.">
-    <section id="contact" class="pt-[20vh] flex flex-col items-center">
-        <div class="pt-10 pb-28">
-            <h2 class="text-4xl font-light">Website</h2>
-            <p class="px-4 text-lg font-light">coming soon</p>
-        </div>
-        <div class="p-5">
-            <div>
-                <p class="font-extrabold sm:text-xl mb-1">Rehuël Lobato de Mesquita</p>
-                <p class="mb-10 text-xs sm:text-base">Freelance full-stack web developer</p>
-                <p class="flex items-center gap-4 mb-2">
-                    <span><Icon name="at-sign"/></span>
-                    <a href="mailto:hello@rehuel.cz" class="hover:underline">hello@rehuel.cz</a>
-                </p>
-                <p class="flex items-center gap-4">
-                    <span><Icon name="linkedin"/></span>
-                    <a href="https://www.linkedin.com/in/rehuel" class="hover:underline">LinkedIn</a>
-                </p>
-            </div>
-        </div>
-    </section>
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (!entry.isIntersecting) {
+					nav.classList.remove('slide-hidden')
+					nav.classList.add('slide-visible', 'sticky', 'top-0', 'z-50')
+				} else {
+					nav.classList.remove('slide-visible', 'sticky', 'top-0', 'z-50')
+					nav.classList.add('slide-hidden')
+				}
+			});
+		}, {threshold: [0]})
+
+		observer.observe(questions)
+	})
+</script>
+
+<Layout title="Rehuël Lobato de Mesquita (Rehuel) - Freelance Full-Stack Web Developer in Brno | Web Design & Development">
+	<nav id="nav" class="slide-hidden top-5 w-full bg-[#F8DFAC]">
+		<ul class="flex justify-between items-center px-16 py-3 uppercase font-extrabold md:text-lg">
+			<li><a href="#"><Icon name="arrow-up" class="font-extrabold" size="1.6rem"/></a></li>
+			<li><a href="#who">Who?</a></li>
+			<li><a href="#what">What?</a></li>
+			<li><a href="#contact">Get in touch?</a></li>
+		</ul>
+	</nav>
+	<main class="mx-10 md:p-4 mb-28">
+		<div class="hero w-full my-16 md:my-48 md:flex md:gap-8">
+			<div class="md:w-[60%] md:text-right text-center">
+				<h1 class="text-7xl md:text-9xl font-extralight">Rehuël</h1>
+				<h2 class="text-xl md:text-4xl pr-2">Lobato de Mesquita</h2>
+			</div>
+			<div class="md:w-[40%] job pt-10 md:py-4 text-center md:text-left">
+				<p class="text-xl md:text-2xl">Freelance<br>Full-stack<br>Web developer</p>
+			</div>
+		</div>
+		<div class="md:flex md:gap-8 md:py-16">
+			<div class="leading-loose md:text-2xl md:w-[60%] md:pr-20 md:leading-loose">
+				Simply put: I design and build web sites and applications, where <span class="font-extrabold">the experience of the end-user</span> is more
+				important than flashy graphics and an abundance of animation.
+			</div>
+			<div id="questions" class="md:w-[40%] mt-6 md:mt-0 pt-4">
+				<p class="text-xs font-extrabold mb-3">QUESTIONS, YOU MIGHT HAVE</p>
+				<ul>
+					<Question icon="user" text="Who is Rehuël?" link="#who" />
+					<Question icon="tool" text="What does he do?" link="#what" />
+					<Question icon="at-sign" text="How do I get in touch?" link="#contact" />
+					<!--<Question icon="map" text="What is the meaning of life?" link="" />-->
+				</ul>
+			</div>
+		</div>
+	</main>
+	<section id="who" class="mx-10 md:mx-16 py-10">
+		<div class="py-10 md:pb-28">
+			<h2 class="text-2xl md:text-4xl font-light">Who</h2>
+			<p class="px-4 text-sm md:text-lg">am I?</p>
+		</div>
+		<div class="space-y-5 leading-loose">
+			<!--<p>The short version</p>-->
+
+			<p>My name Rehuël [Re-hu-el]. I was born and raised in Suriname, a Dutch speaking country on the north coast of
+			South America. I now live in the great city of Brno in the Czech Republic.</p>
+
+			<p>I am a self-taught multi-disciplinary IT specialist, with about 25 years of web design and development experience.</p>
+
+			<p>In 2000 I started learning and working with HTML, CSS, PHP and MySQL, using tables to keep
+				the design of the websites together. Four years later I started my own small design studio and I was one of the first in Suriname to create fully HTML
+			and CSS compliant websites. No more using tables for styling.</p>
+
+			<p>The highlight of my web development career was work I did for the National Assembly of Suriname: I got to develop several web applications for in-house use.</p>
+
+			<p>When I moved to Brno in 2018, I decided to explore some other development and support-related avenues. After a while, I found that I was missing the joy I had
+				when I was developing web apps, so the decision was made to go back to my passion.</p>
+
+			<p>Unfortunately, this means that I don't have anything to show from my previous work. Most of it has already been overhauled to fit the current trends and
+				some of it is private. So now my task is to produce work to populate a nice portfolio.</p>
+		</div>
+	</section>
+	<section id="what" class="mx-10 md:mx-16 py-10">
+		<div class="py-10 md:pb-28">
+			<h2 class="text-2xl md:text-4xl font-light">What</h2>
+			<p class="px-4 text-sm md:text-lg font-light">services</p>
+			<p class="px-4 text-sm md:text-lg font-light">do I offer?</p>
+		</div>
+		<div class="md:flex md:justify-between md:items-start md:gap-20 pb-16">
+			<div class="md:basis-0 md:grow mb-7 md:mb-0">
+				<p class="uppercase font-bold mb-3">Development</p>
+				<p class="leading-loose">I develop web applications, both for the frontend and the backend. My extensive knowledge of HTML, CSS and JavaScript allows me
+					to build applications using Vue, Astro and HTMX. For backend development I prefer JavaScript-based solutions and PHP, combined with SQL and Non-SQL databases.</p>
+			</div>
+			<div class="md:basis-0 md:grow">
+				<p class="uppercase font-bold mb-3">Design</p>
+				<p class="leading-loose">I design user interfaces for web sites and applications, with a strong focus on user experience.
+					Besides the old pencil-and-paper method, I use Photoshop and Figma, combined with my knowledge of UX and visual design principles,
+					to assist me in the process.</p>
+			</div>
+		</div>
+		<div>
+			<p class="uppercase font-bold mb-4">Technologies and tools used</p>
+			<div class="flex flex-wrap gap-2 space-y-2 items-end md:justify-between">
+				<Icon name="logos_html-5" size="3rem" title="HTML 5"/>
+				<Icon name="logos_css-3" size="3rem" title="CSS 3"/>
+				<Icon name="logos_javascript" size="3rem" title="JavaScript"/>
+				<Icon name="logos_vue" size="3rem" title="Vue.js"/>
+				<Icon name="logos_astro-icon" size="3rem" title="Astro"/>
+				<Icon name="skill-icons_htmx-dark" size="3rem" title="HTMX"/>
+				<Icon name="logos_nodejs" size="3rem" title="Node.js"/>
+				<Icon name="logos_laravel" size="3rem" title="Laravel"/>
+				<Icon name="logos_mongodb" size="3rem" title="MongoDB"/>
+				<Icon name="logos_mysql" size="3rem" title="MySQL"/>
+				<Icon name="logos_figma" size="3rem" title="Figma"/>
+				<Icon name="logos_tailwindcss" size="3rem" class="text-[#38bdf8]" title="Tailwind CSS"/>
+			</div>
+		</div>
+	</section>
+	<section id="contact" class="mx-10 md:mx-16 mb-16 py-10">
+		<div class="py-10 md:pb-28">
+			<h2 class="text-2xl md:text-4xl font-light">Get in touch</h2>
+			<p class="px-4 text-sm md:text-lg font-light">with me.</p>
+		</div>
+		<div class="mb-10 md:mb-16">
+			<p>Feel free to get in touch if you need a website, if you’re looking for a developer to join your team or just to
+				chat.</p>
+		</div>
+		<div class="mx-auto md:w-2/5 p-2 md:p-5">
+			<div>
+				<p class="font-extrabold text-lg md:text-xl mb-1">Rehuël Lobato de Mesquita</p>
+				<p class="text-sm md:text-base mb-10">Freelance full-stack web developer</p>
+				<p class="flex items-center gap-4 mb-2">
+					<span><Icon name="at-sign" /></span>
+					<a href="mailto:hello@rehuel.cz" class="hover:underline">hello@rehuel.cz</a>
+				</p>
+				<p class="flex items-center gap-4">
+					<span><Icon name="linkedin" /></span>
+					<a href="https://www.linkedin.com/in/rehuel" class="hover:underline">LinkedIn</a>
+				</p>
+			</div>
+		</div>
+	</section>
 </Layout>
+
+<style>
+	.slide-hidden {
+		opacity: 0;
+		transform: translateY(-100px); /* Start from above */
+		transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+	}
+
+	.slide-visible {
+		opacity: 1;
+		transform: translateY(0); /* Slide into place */
+		transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+	}
+
+</style>
